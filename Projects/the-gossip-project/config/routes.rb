@@ -6,11 +6,10 @@ Rails.application.routes.draw do
 
     get 'user/:id', to: 'user#show'
 
-    get 'gossip/:id', to: 'gossip#show'
-    
-    get '/contact', to: 'contact#show'
-    get '/team', to: 'team#show'
-
     # rails routes for gossips:
+    resources :index
+    resources :contact, only: [:show]
+    resources :team, only: [:show]
     resources :gossips
+    resources :users
 end
